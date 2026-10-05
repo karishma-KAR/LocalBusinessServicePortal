@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LocalFix | Local Business Service Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <a href="#home" class="logo">LocalFix</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Book a Service</a></li>
+                <li><a href="#tracking">Track Request</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>Reliable Local Services at Your Doorstep</h1>
+
+            <p>
+                Find trusted local services, submit your service request,
+                and track your request easily with LocalFix.
+            </p>
+
+            <a href="#services" class="btn">
+                Explore Services
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+
+        <h2>Our Services</h2>
+
+        <p class="section-intro">
+            Choose a service according to your requirement.
+        </p>
+
+        <div class="service-container">
+
+            <!-- Plumbing -->
+            <div class="service-card">
+
+                <h3>🔧 Plumbing</h3>
+
+                <p>
+                    Get help with water leakage, pipe problems,
+                    taps and other plumbing issues.
+                </p>
+
+                <button onclick="selectService('Plumbing')">
+                    Choose Service
+                </button>
+
+            </div>
+
+
+            <!-- Electrical -->
+            <div class="service-card">
+
+                <h3>⚡ Electrical Repair</h3>
+
+                <p>
+                    Request assistance for electrical faults,
+                    switches, wiring and other issues.
+                </p>
+
+                <button onclick="selectService('Electrical Repair')">
+                    Choose Service
+                </button>
+
+            </div>
+
+
+            <!-- Cleaning -->
+            <div class="service-card">
+
+                <h3>🧹 Home Cleaning</h3>
+
+                <p>
+                    Book local home cleaning services
+                    according to your requirement.
+                </p>
+
+                <button onclick="selectService('Home Cleaning')">
+                    Choose Service
+                </button>
+
+            </div>
+
+
+            <!-- AC Repair -->
+            <div class="service-card">
+
+                <h3>❄️ AC Repair</h3>
+
+                <p>
+                    Get assistance for AC cooling,
+                    maintenance and repair problems.
+                </p>
+
+                <button onclick="selectService('AC Repair')">
+                    Choose Service
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking-section">
+
+        <h2>Book a Service</h2>
+
+        <p class="section-intro">
+            Fill in the details to submit your service request.
+        </p>
+
+
+        <form id="serviceForm">
+
+            <!-- Name -->
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                >
+
+                <small id="nameError"></small>
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter 10-digit phone number"
+                    maxlength="10"
+                >
+
+                <small id="phoneError"></small>
+
+            </div>
+
+
+            <!-- Service -->
+            <div class="form-group">
+
+                <label for="service">
+                    Select Service
+                </label>
+
+                <select id="service">
+
+                    <option value="">
+                        -- Select Service --
+                    </option>
+
+                    <option value="Plumbing">
+                        Plumbing
+                    </option>
+
+                    <option value="Electrical Repair">
+                        Electrical Repair
+                    </option>
+
+                    <option value="Home Cleaning">
+                        Home Cleaning
+                    </option>
+
+                    <option value="AC Repair">
+                        AC Repair
+                    </option>
+
+                </select>
+
+                <small id="serviceError"></small>
+
+            </div>
+
+
+            <!-- Problem -->
+            <div class="form-group">
+
+                <label for="problem">
+                    Describe Your Problem
+                </label>
+
+                <textarea
+                    id="problem"
+                    rows="5"
+                    placeholder="Describe your service requirement"
+                ></textarea>
+
+                <small id="problemError"></small>
+
+            </div>
+
+
+            <!-- Submit -->
+            <button type="submit" class="submit-btn">
+                Submit Request
+            </button>
+
+
+            <!-- Success Message -->
+            <div
+                id="successMessage"
+                class="success-message"
+            ></div>
+
+        </form>
+
+    </section>
+
+
+    <!-- Tracking Section -->
+    <section id="tracking" class="section tracking-section">
+
+        <h2>Track Your Request</h2>
+
+        <p class="section-intro">
+            Enter your Request ID to check your request details.
+        </p>
+
+
+        <form id="trackingForm">
+
+            <div class="form-group">
+
+                <label for="requestId">
+                    Request ID
+                </label>
+
+                <input
+                    type="text"
+                    id="requestId"
+                    placeholder="Example: LF12345"
+                >
+
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Track Request
+            </button>
+
+        </form>
+
+
+        <div id="trackingResult"></div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 LocalFix | Local Business Service Portal
+        </p>
+
+        <p>
+            Developed as a Web Development Internship Project
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
